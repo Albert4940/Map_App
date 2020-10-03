@@ -1,0 +1,50 @@
+body{
+	/*background-image: url('../img/task4.JPG');*/
+	background-color: #394263;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h1,p{
+	text-align: center;
+	color: white;
+}
+#app-login{
+	margin: auto;
+    background-color: #4D5573;
+    width: 400px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+form{ 
+	display: flex;
+	flex-direction: column;
+	
+}
+
+input{
+	text-align: center;
+	margin: 5px;
+	height: 40px;
+	font-size: 17px;
+	border: 0 solid black;
+	background-color: #e9ecef;
+}
+
+input[type=submit]{
+	background-color: #283845;
+	color: white;
+}
+
+a{
+	text-decoration: none;
+}
+
+#signup-link, a,#signin-link{
+	font-size: 17px;
+	color:white;
+}
+a:hover{
+	color:#283845;
+}

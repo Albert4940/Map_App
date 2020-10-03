@@ -1,0 +1,24 @@
+h1,p{
+	text-align: center;
+}
+#form_signup{
+	margin: auto;
+    /*background-color: red;*/
+    width: 1000px;
+    /*border-radius: 5px;*/
+    padding: 10px;
+}
+input{
+	text-align: center;
+	width: 100%;
+	margin: 5px;
+	height: 40px;
+	font-size: 17px;
+	border: 0 solid black;
+	background-color: #e9ecef;
+}
+
+input[type=submit]{
+	background-color: #283845;
+	color: white;
+}

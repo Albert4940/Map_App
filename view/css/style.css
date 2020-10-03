@@ -1,0 +1,82 @@
+body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: #394263;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  /*background: #ddd;*/
+  /*color: black;*/
+}
+
+.btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 14px 30px;
+  text-align: center;
+  font-size: 16px;
+  margin: 2px 1px;
+  /*transition: 0.3s;*/
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  margin-top: 77px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /*background-color: #394263;*/
+  background-color: #4D5573;
+  overflow-x: hidden;
+  padding-top: 35px;
+  text-align: center;
+  /*padding-left: 25px;*/
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  color: #F5F5F7;
+  display: block;
+  padding-left: 10px;
+}
+
+.sidenav a:hover {
+  color: white;
+  background-color: #313854;
+}
+
+.main {
+  margin-top:95px;
+  margin-left: 168px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
