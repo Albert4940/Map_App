@@ -1,18 +1,12 @@
-function openMenu(evt, menuName){
+
+/*function openMenu(evt, menuName){
                
-    var i, tabcontent, tablinks;
-    
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName('tabcontent');
-    for(i=0; i<tabcontent.length;i++)
-    {
-        tabcontent[i].style.display = 'none';
-    }
+    var i, tabcontent, item;
     
     // Get all elements with class="tablinks" and remove the class "active"
-   tablinks = document.getElementsByClassName('tablinks');
-    for(i = 0; i < tablinks.length; i++){
-        tablinks[i].className = tablinks[i].className.replace(" active","");
+   item = document.getElementsByClassName('item');
+    for(i = 0; i < item.length; i++){
+        item[i].className = item[i].className.replace(" active","");
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
@@ -20,4 +14,23 @@ function openMenu(evt, menuName){
     evt.currentTarget.className += " active";
 }
 
-document.getElementById("myButton").click();
+document.getElementById("myItem").click();*/
+(function($){
+	//console.log($('#myItem').html());
+	function openMenu(evt, menuName){
+               
+    var i, tabcontent, item;
+    
+    // Get all elements with class="tablinks" and remove the class "active"
+   item = document.getElementsByClassName('item');
+    for(i = 0; i < item.length; i++){
+        item[i].className = item[i].className.replace(" active","");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+     //document.getElementById(menuName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+//document.getElementById("myItem");
+})(jQuery)

@@ -1,5 +1,6 @@
 <div class="sidenav">
-  <a href="../html/dashboard.php">AJOUTER</a>
-  <a href="../html/rech.php">RECHERCHER</a>
-  <a href="#clients">Clients</a>
+  <a id="dash" href="../html/dashboard.php">DASHBOARD</a>
+  <a id="ajouter" class="item" href="../html/ajouter.php">AJOUTER</a>
+  <a id="rechercher" class="item" href="../html/rech.php">RECHERCHER</a>
+  <a id="lister" class="item" href="../html/lister.php">LISTER</a>
 </div>

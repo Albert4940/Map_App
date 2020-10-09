@@ -29,6 +29,7 @@ class Address
     }
   }
 
+ public function id(){return $this->_id;}
  public function address(){return $this->_address;}
  public function city(){return $this->_city;}
  public function country(){return $this->_country;}

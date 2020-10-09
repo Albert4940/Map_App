@@ -19,71 +19,85 @@ require_once("../../model/Connection/Connection.php");
 		}
       }
    }
+
+   //Function for check inputs
+   function check(User $us){
+     $response ;
+    if(empty($us->first_name()) OR empty($us->last_name()) OR empty($us->username()) OR empty($us->password())){
+      $response = 'Veillez Remplir tous les champs !';
+    }else{
+      $response = 1;
+    }
+    return $response;
+  }  
+
 	$type = $_POST['type'];
 
+	//Register a user
 	if($type == 1){
 
-		//Test after
+		//Test user's input
+
 		$firstN = $_POST['firstN'];
 		$lastN = $_POST['lastN'];
-		$user = $_POST['username'];
+		$userN = $_POST['username'];
 		$pass = $_POST['pass'];
 
 		$user = new User([
 			'first_name'=>$firstN,
 			'last_name'=>$lastN,
-			'username'=>$user,
+			'username'=>$userN,
 			'password'=>$pass
 		]);
 
-		//echo ($user->username().'=>'.$user->password().'=>'.$user->first_name().'=>'.$user->last_name());
-		$manager = new UserManager($con);
-		$response = $manager->addUser($user);
-		if($response == 'success'){
-			$_SESSION['username'] = $user->username();
-			header('Location:../../view/html/dashboard.php');
-		}
-		//echo $response;
-		/*if($response == false){
-			echo $response;
+		$test = check($user);
+		
+		if($test == 1){
+			//echo ($user->username().'=>'.$user->password().'=>'.$user->first_name().'=>'.$user->last_name());
+			$manager = new UserManager($con);
+
+			$response = $manager->exist($userN);
+			$user_id = (int)$response['user_id'];
+			//$res = $manager->getUser($user,$pass);
+			//var_dump($manager->getUser($user,$pass));
+			if($user_id > 0){
+				$_SESSION['error'] = 'Le nom utilisateur est deja utiliser !';
+				header('Location:../../view/html/register.php');
+			}else{
+				$response = $manager->addUser($user);
+				if($response == 'success'){
+					$_SESSION['username'] = $user->username();
+					header('Location:../../view/html/dashboard.php');
+				}
+			}
 		}else{
-			$_SESSION['status_2'] = $response['status'];
-			$_SESSION['user_id_2'] = $response['user_id'];
-			echo json_encode($response);			
-		}*/
+			$_SESSION['error'] = $test;
+       		header('Location:../../view/html/register.php');
+		}
 	}
+
+	//Login
 
 	if($type == 2){
 		$user = $_POST['username'];
 		$pass = $_POST['pass'];
-		$manager = new UserManager($con);
-		$response = $manager->getUser($user,$pass);
-		$user_id = (int)$response['user_id'];
-		if($user_id > 0){
-			$_SESSION['username'] = $user;
-			header('Location:../../view/html/dashboard.php');			
-		} else{
+		if(empty($user) OR empty($pass)){
+			$_SESSION['error'] = 'Veillez Remplir tous les champs !';
 			header('Location:../../view/html/login.php');
-		}
-		/*if($response == false){
-			echo $response;
 		}else{
-			echo json_encode($response);
-			$_SESSION['user_id'] = $response['user_id'];
-			$_SESSION['username'] = $response['username'];
-			$_SESSION['status'] = $response['status'];
-		}	*/
-	}
-
-	if($type == 4){
-		session_unset();
-		session_destroy();
-		if(isset($_SESSION['username'])){
-			echo json_encode('failed');
-		}else{
-			echo json_encode('success');
+			$manager = new UserManager($con);
+			$response = $manager->getUser($user,$pass);
+			$user_id = (int)$response['user_id'];
+			if($user_id > 0){
+				$_SESSION['username'] = $user;
+				header('Location:../../view/html/dashboard.php');			
+			} else{
+				$_SESSION['error'] = 'User Name ou Mot de passe Incorrect !';
+				header('Location:../../view/html/login.php');
+			}	
 		}
 		
 	}
+
 ?>
 

@@ -7,7 +7,9 @@ body {margin:0;}
   top: 0;
   width: 100%;
 }
-
+.navbar .welcome{
+  margin-top: 7px;
+}
 .navbar a {
   float: right;
   display: block;
@@ -27,9 +29,9 @@ body {margin:0;}
   background-color: #ddd;
   border: none;
   color: black;
-  padding: 14px 30px;
+  padding: 7px 23px;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   margin: 2px 1px;
   /*transition: 0.3s;*/
 }
@@ -43,7 +45,7 @@ body {margin:0;}
   height: 100%;
   width: 200px;
   position: fixed;
-  margin-top: 77px;
+  margin-top: 63px;
   z-index: 1;
   top: 0;
   left: 0;
@@ -69,14 +71,39 @@ body {margin:0;}
   background-color: #313854;
 }
 
+.active{
+   color: white;
+  background-color: #313854;
+}
 .main {
-  margin-top:95px;
+  margin-top:75px;
   margin-left: 168px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+  font-size: 17px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.title{
+  font-size: 30px;
+}
+
+.message{
+  padding: 14px 28px;
+  margin: 5px;
+  margin-right: -10px;
+  border: none;
+  font-size: 17px;
+  color: white;
+}
+
+.danger{
+  background-color: #f44336;
+}
+
+.success{
+  background-color: #4CAF50;
 }

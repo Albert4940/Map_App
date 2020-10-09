@@ -11,8 +11,11 @@ require_once("../../controller/address/AddressController.php");
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+	</style>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+	
 </head>
 <body id="App">
 	<div>
@@ -21,10 +24,8 @@ require_once("../../controller/address/AddressController.php");
 	</div>
 	<div class="main">
 		<div id="main_content">
-			<header>
-				<div><p id="header_content">ONE CLICK ONE ADDRESS</p></div>
-			</header>
-			<h3 style="text-align: center;">LES ADRESSES RECENTS</h3>
+			<h3 style="text-align: center;">LES ADRESSES</h3>
+			
 			<table>
 				 <thead>
 				   <tr>
@@ -50,22 +51,22 @@ require_once("../../controller/address/AddressController.php");
 				    		<td><?=$data['country']?></td>
 				    		<td><?=$data['zip_code']?></td>
 				    		<?php $adre = json_encode($data);?>
-				    		<td><a href="map.php?q2=<?=$data['address']?>&q3=<?=$data['city']?>&q4=<?=$data['country']?>&q5=<?=$data['zip_code']?>"><button class="btn_view">View</button></a></td>
+				    		<td><a href="map.php?q2=<?=$data['address']?>&q3=<?=$data['city']?>&q4=<?=$data['country']?>&q5=<?=$data['zip_code']?>"><button class="btn_view">View</button></a><a href="../../controller/address/AddressController.php?id=<?=$data['id']?>"><button class="btn_view"  style="background-color: red;">DELETE</button></a></td>
 				    	</tr>
 				     <?php
-				     if($i == 7)break;
+				    // if($i == 7)break;
 				            }											
 				 	?>
 				 </tbody>
 				  
-			</table><br><hr><br>
-			<center><a href="lister.php"><button class = "btn_view"style="margin: auto;">VOIR PLUS</button></a></center><br>
+			</table>
+			<!-- <center><a href="lister.php"><button style="margin: auto;">VOIR PLUS</button></a></center> -->
 		</div>
 	</div>
 	<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		(function($){
-			$('#dash').addClass("active");
+			$('#lister').addClass("active");
 		})(jQuery)
 	</script>
 </body>

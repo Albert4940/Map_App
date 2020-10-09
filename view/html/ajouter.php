@@ -19,10 +19,16 @@
 	</div>
 	<div class="main">
 		<div id="form_signup">
-			<h1 class="title">RECHERCHER UNE ADRESSE</h1>
+			<h1 class="title">AJOUTER UNE ADRESSE</h1>
 			<?php 
+				if(isset($_SESSION['success']) AND $_SESSION['success'] != ''){
+					echo'<p class="message success">'.$_SESSION['success'].'<p/>';
+					$_SESSION['success'] = '';
+					$_SESSION['error'] = '';
+				}
 				if(isset($_SESSION['error']) AND $_SESSION['error'] != ''){
-					echo'<p>'.$_SESSION['error'].'<p/>';
+					echo'<p class="message danger">'.$_SESSION['error'].'<p/>';
+					$_SESSION['success'] = '';
 					$_SESSION['error'] = '';
 				}
 				?>
@@ -31,15 +37,15 @@
 			<input type="text" name="city" placeholder="VILLE"   />
 			<input type="text" name="country" placeholder="PAYS"   />
 			<input type="text" name="zip"   placeholder="CODE POSTAL" /><br/>
-			<input type="submit" name="rechercher" value="RECHERCHER"  />
-			<input type="hidden" name="type" value="2"/>
+			<input type="submit" name="ajouter" value="AJOUTER"  id="ok" />
+			<input type="hidden" name="type" value="1"/>
 		</form>
 		</div>
 	</div>
 	<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		(function($){			
-			$('#rechercher').addClass("active");
+			$('#ajouter').addClass("active");
 		})(jQuery)
 	</script>
 </body>

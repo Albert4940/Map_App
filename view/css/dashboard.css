@@ -1,0 +1,61 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.btn_view{
+	 background-color: #3e8e41;
+  border: none;
+  color: black;
+  padding: 7px 20px;
+  text-align: center;
+  font-size: 13px;
+  margin: 2px 1px;
+}
+
+.btn_view:hover{
+	color: white;
+	background-color:  #4D5573;
+}
+#main_content{
+	margin: auto;    
+    width: 1000px;
+}
+header{
+	background-image: url('../img/map2.JPG');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 250px;
+	
+}
+
+#header_content{
+	text-align: center;
+	padding: 110px;
+	color: white;
+	font-size: 25px
+}
+
+#myInput {
+		  width: 100%;
+		  font-size: 16px;
+		  /*padding: 12px -10px 12px 12px;*/
+		  padding-top: 12px;
+		  padding-left: 12px;
+		  padding-bottom: 12px;
+		  padding-right: -32px; 
+		  border: 1px solid #ddd;
+		  margin-bottom: 12px;
+		  /*margin-right: 20px;*/
+		}

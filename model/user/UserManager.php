@@ -21,31 +21,21 @@ class UserManager{
         }
     }
 
-    //List all user on the database 
-    public function allUser() {
+   //search for a user
+    public function exist($username){
         try {
-            $select = "SELECT * from user ;";
-            $result = $this->_db->query( $select );
-            //$listeUsers = $result->fetchAll();
-            return $result;
-        } catch ( PDOException $e ) {
-            die( 'Error on method allUser: no data found ' . $e->getMessage() );
-        }
-    }
+            //$data;
+            $q = $this->_db->prepare("SELECT * FROM user where username = :user");
+            $q->execute(array(
+                ':user' => $username
+                
+            ));
 
-    //Modify the table
-    public function updateUser(User $user){
-        try {
-            $update = $this->_db->prepare( 'UPDATE user set first_name=:first_name, last_name=:last_name, phone_number=:phone_number, email=:email where user_id=:user_id');
-            $update->execute( array(
-                'user_id' =>$user->getUserId(),
-                'first_name'=>$user->getFisrtName(),
-                'last_name'=>$user->getlastName(),
-                'phone_number'=>$user->getphoneNumber(),
-                'email'=>$user->getEmail() ) );
-                echo "Update successfuly!!!";
+            $data = $q->fetch(PDO::FETCH_ASSOC);
+           return $data;
+            
         } catch ( PDOException $e ) {
-            die( 'Error...update failed : ' . $e->getMessage() );
+            die( 'No user user found for your entry ' . $e->getMessage() );
         }
     }
 
@@ -66,30 +56,7 @@ class UserManager{
             die( 'No user user found for your entry ' . $e->getMessage() );
         }
     }
-    //Remove a user 
-    public function deleteUser($req) {
-        try {
-            $del = $this->_db->prepare( 'DELETE from user where user_id=:user_id or email= :email');
-            $del->execute( array(
-                'user_id' =>$req,
-                'email'=>$req ) );
-                echo "Deletion done successfuly!!!";
-        } catch ( PDOException $e ) {
-            die( 'No user user found for your entry... : ' . $e->getMessage() );
-        }
-    }
-
-    
-    public function lastId(){
-        try {
-            $selOne="SELECT user_id from user order by user_id desc limit 0,1;";
-            $result = $this->_db->query( $selOne );
-            //$listeUsers = $result->fetch();
-                return $result;
-        } catch ( PDOException $e ) {
-            die( 'No result found on table user' . $e->getMessage() );
-        }
-    }
+   
 
     public function setDb(PDO $db)
     {

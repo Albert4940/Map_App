@@ -1,6 +1,6 @@
 body{
-	/*background-image: url('../img/task4.JPG');*/
-	background-color: #394263;
+	background-image: url('../img/map1.JPG');
+	/*background-color: #394263;*/
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -11,10 +11,13 @@ h1,p{
 }
 #app-login{
 	margin: auto;
+    /*background-color: #4D5573;*/
     background-color: #4D5573;
     width: 400px;
     border-radius: 5px;
     padding: 10px;
+    float: right;
+    margin-right: 120px;
 }
 
 form{ 
@@ -47,4 +50,15 @@ a{
 }
 a:hover{
 	color:#283845;
+}
+
+.message{
+	padding: 14px 28px;
+	margin: 5px;
+	border: none;
+	font-size: 17px;
+}
+
+.danger{
+	background-color: #f44336;
 }
